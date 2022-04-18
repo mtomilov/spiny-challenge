@@ -54,7 +54,7 @@ if __name__ == '__main__':
         keywords = f.read().strip().splitlines()
 
     db = get_db()
-    for keyword in keywords[:1]:
+    for keyword in keywords:
         df = pull_trend(keyword)
         save_trend(db, df)
         time.sleep(PULL_TIMEOUT)
