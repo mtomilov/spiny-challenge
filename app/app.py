@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/ping')
 def ping_server():
     return 'hello world'
 
