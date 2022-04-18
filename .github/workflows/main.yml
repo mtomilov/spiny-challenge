@@ -19,5 +19,6 @@ jobs:
             mkdir ~/spiny-challenge
             git clone https://github.com/mtomilov/spiny-challenge.git
             cd ~/spiny-challenge
+            docker-compose down
             docker-compose up -d
             echo 'Successfully deployed to digital ocean'
