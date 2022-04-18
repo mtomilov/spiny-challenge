@@ -3,10 +3,15 @@ from pathlib import Path
 
 import pandas as pd
 from pymongo.database import Database
+from pymongo.errors import BulkWriteError
 from pytrends.request import TrendReq
+import logging
+
 from utils import get_db
 
 PULL_TIMEOUT = 1
+
+logger = logging.getLogger(__name__)
 
 
 def pull_trend(keyword: str, timeframe: str = 'now 4-H') -> pd.DataFrame:
@@ -30,7 +35,17 @@ def save_trend(db: Database, df: pd.DataFrame) -> None:
     df.reset_index(inplace=True)
     df.rename(columns={keyword: 'interest', 'isPartial': 'is_partial'}, inplace=True)
     df['keyword'] = keyword
-    db.trends.insert_many(df.to_dict(orient='records'), ordered=False)
+    try:
+        # with ordered=False all document inserts will be attempted
+        db.trends.insert_many(df.to_dict(orient='records'), ordered=False)
+    except BulkWriteError as e:
+        # filter out duplicate key errors
+        filtered_write_errors = [
+            err for err in e.details['writeErrors'] if err['code'] != 11000
+        ]
+        if filtered_write_errors:
+            e.details['writeErrors'] = filtered_write_errors
+            raise e
 
 
 if __name__ == '__main__':
@@ -43,3 +58,4 @@ if __name__ == '__main__':
         df = pull_trend(keyword)
         save_trend(db, df)
         time.sleep(PULL_TIMEOUT)
+        logger.info('pulled the trends for {}'.format(keyword))
