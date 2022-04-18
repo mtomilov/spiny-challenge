@@ -1,6 +1,18 @@
 
 # Notes
 
+## Commands
+
+From the top directory  
+Run:  
+`$ docker-compose up -d`  
+Debug:  
+`$ docker-compose -f docker-compose.yml -f docker-compose-dev.yml up`  
+Inspect cron logs:  
+`$ docker-compose exec app tail -F /var/log/pull_trends.log`  
+Invoke pull trends:  
+`$ docker-compose exec app python -m tasks.pull_trends`  
+
 ## Why mongo?
 
 Great for prototyping, would switch to redis for speed and to postgres for relational data.
