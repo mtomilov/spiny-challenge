@@ -11,6 +11,11 @@ Great for prototyping, would switch to redis for speed and to postgres for relat
 
 For simplicity and provided we have proper indices in place, might just be fine.
 
+## Why cron?
+
+Thought it would be simpler in this context, but regretting it already. :)
+Should've gone for separate cron (or celery) container from the get go.
+
 ## Why docker compose?
 
 Just for demonstration purposes. Would switch to docker swarm with multiple stages and possibly k8s.
@@ -31,3 +36,4 @@ Deploy prod would be run manually if everything is fine on stage.
 - consider storing documents by keyword
 - refactor layout
 - do not install dev deps by default
+- set up proper limit rates
