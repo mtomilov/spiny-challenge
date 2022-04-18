@@ -13,6 +13,11 @@ Inspect cron logs:
 Invoke pull trends:  
 `$ docker-compose exec app python -m tasks.pull_trends`  
 
+## Apis
+
+`/apis/search_interest/<keyword>`  
+`/ping`  
+
 ## Why mongo?
 
 Great for prototyping, would switch to redis for speed and to postgres for relational data.
