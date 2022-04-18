@@ -1,12 +1,9 @@
-import logging
 import os
 
 import pandas as pd
 from flask import Flask, jsonify
 
 from utils import get_db
-
-logging.basicConfig(level=logging.INFO)
 
 
 app = Flask(__name__)

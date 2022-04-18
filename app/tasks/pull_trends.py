@@ -1,3 +1,4 @@
+import logging
 import time
 from pathlib import Path
 
@@ -5,12 +6,12 @@ import pandas as pd
 from pymongo.database import Database
 from pymongo.errors import BulkWriteError
 from pytrends.request import TrendReq
-import logging
 
 from utils import get_db
 
 PULL_TIMEOUT = 1
 
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
