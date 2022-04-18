@@ -8,5 +8,4 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 RUN poetry install --no-root
 COPY . .
-COPY pull_trends.sh /etc/cron.hourly/
-
+ENTRYPOINT ["./entrypoint.sh"]
