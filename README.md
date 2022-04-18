@@ -2,7 +2,10 @@
 # Notes
 
 Why mongo?
-Great for prototyping, would go for redis for speed and for postgres for relational data.
+Great for prototyping, would switch to redis for speed and to postgres for relational data.
+
+Why docker compose?
+Just for demonstration purposes. Would switch to docker swarm and possibly k8s.
 
 Avenues for improvement:
 - separate container for tasks
