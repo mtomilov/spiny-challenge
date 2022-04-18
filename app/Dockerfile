@@ -8,4 +8,4 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 RUN poetry install --no-root
 COPY . .
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["bash", "./entrypoint.sh"]

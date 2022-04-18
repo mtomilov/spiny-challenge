@@ -1,1 +1,1 @@
-* * * * * root python /app/tasks/pull_trends.py >> /var/log/pull_trends.log 2>&1
+* * * * * cd /app/; /usr/local/bin/python -m tasks.pull_trends >> /var/log/pull_trends.log 2>&1
