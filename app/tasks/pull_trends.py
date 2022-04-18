@@ -56,6 +56,9 @@ if __name__ == '__main__':
     db = get_db()
     for keyword in keywords:
         df = pull_trend(keyword)
+        if df.empty:
+            logger.info(f'no data for {keyword}')
+            continue
         save_trend(db, df)
         time.sleep(PULL_TIMEOUT)
         logger.info('pulled the trends for {}'.format(keyword))
