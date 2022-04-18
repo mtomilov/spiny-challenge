@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  app:
+    command: tail -F /dev/null
+    environment:
+      - DEBUG=True

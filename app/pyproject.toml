@@ -1,0 +1,28 @@
+[tool.poetry]
+authors = ["Michael Tomilov <mtomilov@gmail.com>"]
+description = "spiny challenge"
+name = "spiny-challenge"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+flask = "^2"
+numpy = "^1"
+pandas = "^1"
+pymongo = "^4"
+python = "^3.10"
+pytrends = "^4"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+flake8 = "*"
+ipdb = "*"
+ipython = "*"
+isort = "*"
+mypy = "*"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.ipdb]
+context = 20

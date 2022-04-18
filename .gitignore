@@ -1,0 +1,8 @@
+*.workspace-settings
+
+.envrc
+.tools-versions
+
+.venv/
+
+*.pyc
