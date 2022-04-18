@@ -22,6 +22,10 @@ Invoke pull trends:
 
 Great for prototyping, would switch to redis for speed and to postgres for relational data.
 
+## Why flask?
+
+I think it's perfect for lightweight apis. We certainly don't want to pull all of django if we end up using 10% of it.
+
 ## Why this format?
 
 `{"date": ..., "keyword": ..., "interest": ..., "is_partial": ...}`
