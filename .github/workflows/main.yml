@@ -14,10 +14,4 @@ jobs:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           usename: ${{secrets.SSH_USERNAME}}
-          script:
-            |
-            mkdir ~/spiny || true
-            cd ~/spiny
-            git clone git@github.com:mtomilov/spiny-challenge.git
-            docker-compose up -d
-            echo 'Successfully deployed to digital ocean'
+          script: whoami
